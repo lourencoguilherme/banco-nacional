@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gml.banco</groupId>
-	<artifactId>Banco-Nacional</artifactId>
+	<artifactId>banco-nacional</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Banco-Nacional</name>
 	<description>Demo project for Spring Boot</description>
