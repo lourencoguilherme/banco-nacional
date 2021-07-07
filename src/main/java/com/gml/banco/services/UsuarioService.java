@@ -10,7 +10,7 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository repository;
 
-    public UsuarioEntity findByUsuarioById(Long usuarioId) {
+    public UsuarioEntity findUsuarioById(Long usuarioId) {
         return repository.findById(usuarioId).orElseThrow();
     }
 

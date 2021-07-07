@@ -21,7 +21,7 @@ public class ContaService {
     }
 
     public ContaEntity saveConta(ContaEntity contaEntity) {
-        UsuarioEntity usuarioEntity = usuarioService.findByUsuarioById(contaEntity.getUsuario().getUsuarioId());
+        UsuarioEntity usuarioEntity = usuarioService.findUsuarioById(contaEntity.getUsuario().getUsuarioId());
         contaEntity.setUsuario(usuarioEntity);
         return repository.save(contaEntity);
     }

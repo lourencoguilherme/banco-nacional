@@ -20,7 +20,7 @@ public class UsuarioController {
 
     @GetMapping(path = "/{usuarioId}")
     public UsuarioResponseDto buscaUsuarioPorId(@PathVariable("usuarioId") Long usuarioId) {
-        return usuarioToUsuarioResponseDto(service.findByUsuarioById(usuarioId));
+        return usuarioToUsuarioResponseDto(service.findUsuarioById(usuarioId));
     }
 
     @PostMapping
