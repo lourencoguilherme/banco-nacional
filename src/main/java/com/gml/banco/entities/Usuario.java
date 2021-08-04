@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Usuario")
-public class UsuarioEntity {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class UsuarioEntity {
     @Column(nullable = true,updatable = true, insertable = false)
     private LocalDateTime atualizadoEm;
 
-    public UsuarioEntity() {
+    public Usuario() {
     }
 
     public Long getUsuarioId() {
@@ -104,7 +104,7 @@ public class UsuarioEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsuarioEntity that = (UsuarioEntity) o;
+        Usuario that = (Usuario) o;
         return usuarioId.equals(that.usuarioId);
     }
 

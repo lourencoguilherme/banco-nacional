@@ -3,7 +3,7 @@ package com.gml.banco.controllers;
 import com.gml.banco.dto.UsuarioCreateDto;
 import com.gml.banco.dto.UsuarioResponseDto;
 import com.gml.banco.dto.UsuarioUpdateDto;
-import com.gml.banco.entities.UsuarioEntity;
+import com.gml.banco.entities.Usuario;
 import com.gml.banco.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,14 +25,14 @@ public class UsuarioController {
 
     @PostMapping
     public UsuarioResponseDto criarUsuario(@RequestBody UsuarioCreateDto usuarioCreateDto) {
-        UsuarioEntity usuarioEntity = service.saveUsuario(usuarioCreateDtoToUsuario(usuarioCreateDto));
-        return usuarioToUsuarioResponseDto(usuarioEntity);
+        Usuario usuario = service.saveUsuario(usuarioCreateDtoToUsuario(usuarioCreateDto));
+        return usuarioToUsuarioResponseDto(usuario);
     }
 
     @PutMapping(path = "/{usuarioId}")
     public UsuarioResponseDto atualizaUsuario(@PathVariable("usuarioId") Long usuarioId, @RequestBody UsuarioUpdateDto usuarioUpdateDto) {
-        UsuarioEntity usuarioEntity = service.updateUsuario(usuarioUpdateDtoToUsuario(usuarioUpdateDto, usuarioId));
-        return usuarioToUsuarioResponseDto(usuarioEntity);
+        Usuario usuario = service.updateUsuario(usuarioUpdateDtoToUsuario(usuarioUpdateDto, usuarioId));
+        return usuarioToUsuarioResponseDto(usuario);
     }
 
     @DeleteMapping(path = "/{usuarioId}")

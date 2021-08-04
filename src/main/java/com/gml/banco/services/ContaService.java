@@ -1,7 +1,7 @@
 package com.gml.banco.services;
 
-import com.gml.banco.entities.ContaEntity;
-import com.gml.banco.entities.UsuarioEntity;
+import com.gml.banco.entities.Conta;
+import com.gml.banco.entities.Usuario;
 import com.gml.banco.repositories.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,28 +16,28 @@ public class ContaService {
     @Autowired
     private UsuarioService usuarioService;
 
-    public List<ContaEntity> findContaByUsuarioId(Long usuarioId) {
+    public List<Conta> findContaByUsuarioId(Long usuarioId) {
         return repository.findContaEntityByUsuarioUsuarioId(usuarioId);
     }
 
-    public ContaEntity saveConta(ContaEntity contaEntity) {
-        UsuarioEntity usuarioEntity = usuarioService.findUsuarioById(contaEntity.getUsuario().getUsuarioId());
-        contaEntity.setUsuario(usuarioEntity);
-        return repository.save(contaEntity);
+    public Conta saveConta(Conta conta) {
+        Usuario usuario = usuarioService.findUsuarioById(conta.getUsuario().getUsuarioId());
+        conta.setUsuario(usuario);
+        return repository.save(conta);
     }
 
-    public ContaEntity updateConta(ContaEntity contaEntityTransientToUpdate) {
-        ContaEntity contaEntityManaged = repository.findById(contaEntityTransientToUpdate.getContaId()).orElseThrow();
-        contaEntityManaged.setTipoConta(contaEntityTransientToUpdate.getTipoConta());
+    public Conta updateConta(Conta contaTransientToUpdate) {
+        Conta contaManaged = repository.findById(contaTransientToUpdate.getContaId()).orElseThrow();
+        contaManaged.setTipoConta(contaTransientToUpdate.getTipoConta());
 
-        return repository.save(contaEntityManaged);
+        return repository.save(contaManaged);
     }
 
     public void deleteConta(Long contaId) {
         repository.deleteById(contaId);
     }
 
-    public ContaEntity findContaById(Long contaId) {
+    public Conta findContaById(Long contaId) {
         return repository.findById(contaId).orElseThrow();
     }
 }

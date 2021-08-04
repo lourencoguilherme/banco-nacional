@@ -3,29 +3,29 @@ package com.gml.banco.mapper;
 import com.gml.banco.dto.UsuarioCreateDto;
 import com.gml.banco.dto.UsuarioResponseDto;
 import com.gml.banco.dto.UsuarioUpdateDto;
-import com.gml.banco.entities.UsuarioEntity;
+import com.gml.banco.entities.Usuario;
 
 public class UsuarioMapper {
 
-    public static UsuarioResponseDto usuarioToUsuarioResponseDto(UsuarioEntity usuarioEntity) {
+    public static UsuarioResponseDto usuarioToUsuarioResponseDto(Usuario usuario) {
         UsuarioResponseDto usuarioResponseDto = new UsuarioResponseDto();
-        usuarioResponseDto.setUsuarioId(usuarioEntity.getUsuarioId());
-        usuarioResponseDto.setNome(usuarioEntity.getNome());
+        usuarioResponseDto.setUsuarioId(usuario.getUsuarioId());
+        usuarioResponseDto.setNome(usuario.getNome());
 
         return usuarioResponseDto;
     }
-    public static UsuarioEntity usuarioCreateDtoToUsuario(UsuarioCreateDto usuarioCreateDto) {
-        UsuarioEntity usuarioEntity = new UsuarioEntity();
-        usuarioEntity.setNome(usuarioCreateDto.getNome());
-        usuarioEntity.setRazaoSocial(usuarioCreateDto.getRazaoSocial());
-        usuarioEntity.setSenha(usuarioCreateDto.getSenha());
-        return usuarioEntity;
+    public static Usuario usuarioCreateDtoToUsuario(UsuarioCreateDto usuarioCreateDto) {
+        Usuario usuario = new Usuario();
+        usuario.setNome(usuarioCreateDto.getNome());
+        usuario.setRazaoSocial(usuarioCreateDto.getRazaoSocial());
+        usuario.setSenha(usuarioCreateDto.getSenha());
+        return usuario;
     }
-    public static UsuarioEntity usuarioUpdateDtoToUsuario(UsuarioUpdateDto usuarioUpdateDto, Long usuarioId) {
-        UsuarioEntity usuarioEntity = new UsuarioEntity();
-        usuarioEntity.setUsuarioId(usuarioId);
-        usuarioEntity.setNome(usuarioUpdateDto.getNome());
-        usuarioEntity.setSenha(usuarioUpdateDto.getSenha());
-        return usuarioEntity;
+    public static Usuario usuarioUpdateDtoToUsuario(UsuarioUpdateDto usuarioUpdateDto, Long usuarioId) {
+        Usuario usuario = new Usuario();
+        usuario.setUsuarioId(usuarioId);
+        usuario.setNome(usuarioUpdateDto.getNome());
+        usuario.setSenha(usuarioUpdateDto.getSenha());
+        return usuario;
     }
 }

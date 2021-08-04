@@ -1,6 +1,6 @@
 package com.gml.banco.services;
 
-import com.gml.banco.entities.UsuarioEntity;
+import com.gml.banco.entities.Usuario;
 import com.gml.banco.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,21 +10,21 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository repository;
 
-    public UsuarioEntity findUsuarioById(Long usuarioId) {
+    public Usuario findUsuarioById(Long usuarioId) {
         return repository.findById(usuarioId).orElseThrow();
     }
 
-    public UsuarioEntity saveUsuario(UsuarioEntity usuarioEntity) {
+    public Usuario saveUsuario(Usuario usuario) {
 
-        return repository.save(usuarioEntity);
+        return repository.save(usuario);
     }
 
-    public UsuarioEntity updateUsuario(UsuarioEntity usuarioEntityTransientToUpdate) {
-        UsuarioEntity usuarioEntityManaged = repository.findById(usuarioEntityTransientToUpdate.getUsuarioId()).orElseThrow();
-        usuarioEntityManaged.setNome(usuarioEntityTransientToUpdate.getNome());
-        usuarioEntityManaged.setSenha(usuarioEntityTransientToUpdate.getSenha());
+    public Usuario updateUsuario(Usuario usuarioTransientToUpdate) {
+        Usuario usuarioManaged = repository.findById(usuarioTransientToUpdate.getUsuarioId()).orElseThrow();
+        usuarioManaged.setNome(usuarioTransientToUpdate.getNome());
+        usuarioManaged.setSenha(usuarioTransientToUpdate.getSenha());
 
-        return repository.save(usuarioEntityManaged);
+        return repository.save(usuarioManaged);
     }
 
     public void deleteUsuario(Long usuarioId) {

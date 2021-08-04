@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Conta")
-public class ContaEntity {
+public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long contaId;
@@ -39,9 +39,9 @@ public class ContaEntity {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
-    private UsuarioEntity usuario;
+    private Usuario usuario;
 
-    public ContaEntity() {
+    public Conta() {
     }
 
     public Long getContaId() {
@@ -108,11 +108,11 @@ public class ContaEntity {
         this.atualizadoEm = atualizadoEm;
     }
 
-    public UsuarioEntity getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(UsuarioEntity usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
@@ -139,7 +139,7 @@ public class ContaEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ContaEntity that = (ContaEntity) o;
+        Conta that = (Conta) o;
         return contaId.equals(that.contaId);
     }
 

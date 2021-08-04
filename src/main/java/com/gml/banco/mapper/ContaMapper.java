@@ -1,45 +1,45 @@
 package com.gml.banco.mapper;
 
 import com.gml.banco.dto.*;
-import com.gml.banco.entities.ContaEntity;
-import com.gml.banco.entities.UsuarioEntity;
+import com.gml.banco.entities.Conta;
+import com.gml.banco.entities.Usuario;
 
 public class ContaMapper {
-    public static ContaResponseDto contaToContaResponseDto(ContaEntity contaEntity) {
+    public static ContaResponseDto contaToContaResponseDto(Conta conta) {
         ContaResponseDto contaResponseDto = new ContaResponseDto();
-        contaResponseDto.setContaId(contaEntity.getContaId());
-        contaResponseDto.setBanco(contaEntity.getBanco());
-        contaResponseDto.setAgencia(contaEntity.getAgencia());
-        contaResponseDto.setConta(contaEntity.getConta());
-        contaResponseDto.setDigito(contaEntity.getDigito());
-        contaResponseDto.setTipoConta(contaEntity.getTipoConta());
-        contaResponseDto.setUsuarioId(contaEntity.getUsuario().getUsuarioId());
-        contaResponseDto.setNome(contaEntity.getUsuario().getNome());
-        contaResponseDto.setRazaoSocial(contaEntity.getUsuario().getRazaoSocial());
+        contaResponseDto.setContaId(conta.getContaId());
+        contaResponseDto.setBanco(conta.getBanco());
+        contaResponseDto.setAgencia(conta.getAgencia());
+        contaResponseDto.setConta(conta.getConta());
+        contaResponseDto.setDigito(conta.getDigito());
+        contaResponseDto.setTipoConta(conta.getTipoConta());
+        contaResponseDto.setUsuarioId(conta.getUsuario().getUsuarioId());
+        contaResponseDto.setNome(conta.getUsuario().getNome());
+        contaResponseDto.setRazaoSocial(conta.getUsuario().getRazaoSocial());
 
         return contaResponseDto;
     }
-    public static ContaEntity contaCreateDtoToConta(ContaCreateDto contaCreateDto) {
-        ContaEntity contaEntity = new ContaEntity();
-        contaEntity.setBanco(contaCreateDto.getBanco());
-        contaEntity.setAgencia(contaCreateDto.getAgencia());
-        contaEntity.setConta(contaCreateDto.getConta());
-        contaEntity.setDigito(contaCreateDto.getDigito());
-        contaEntity.setTipoConta(contaCreateDto.getTipoConta());
+    public static Conta contaCreateDtoToConta(ContaCreateDto contaCreateDto) {
+        Conta conta = new Conta();
+        conta.setBanco(contaCreateDto.getBanco());
+        conta.setAgencia(contaCreateDto.getAgencia());
+        conta.setConta(contaCreateDto.getConta());
+        conta.setDigito(contaCreateDto.getDigito());
+        conta.setTipoConta(contaCreateDto.getTipoConta());
 
-        UsuarioEntity usuarioEntity = new UsuarioEntity();
-        usuarioEntity.setUsuarioId(contaCreateDto.getUsuarioId());
-        contaEntity.setUsuario(usuarioEntity);
-        return contaEntity;
+        Usuario usuario = new Usuario();
+        usuario.setUsuarioId(contaCreateDto.getUsuarioId());
+        conta.setUsuario(usuario);
+        return conta;
     }
-    public static ContaEntity contaUpdateDtoToConta(ContaUpdateDto contaUpdateDto, Long contaId) {
-        ContaEntity contaEntity = new ContaEntity();
-        contaEntity.setContaId(contaId);
-        contaEntity.setTipoConta(contaUpdateDto.getTipoConta());
+    public static Conta contaUpdateDtoToConta(ContaUpdateDto contaUpdateDto, Long contaId) {
+        Conta conta = new Conta();
+        conta.setContaId(contaId);
+        conta.setTipoConta(contaUpdateDto.getTipoConta());
 
-        UsuarioEntity usuarioEntity = new UsuarioEntity();
-        usuarioEntity.setUsuarioId(contaUpdateDto.getUsuarioId());
-        contaEntity.setUsuario(usuarioEntity);
-        return contaEntity;
+        Usuario usuario = new Usuario();
+        usuario.setUsuarioId(contaUpdateDto.getUsuarioId());
+        conta.setUsuario(usuario);
+        return conta;
     }
 }
