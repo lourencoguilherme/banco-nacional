@@ -33,6 +33,16 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(Long usuarioId, String nome, String senha, String razaoSocial, Boolean ativo, LocalDateTime criadoEm, LocalDateTime atualizadoEm) {
+        this.usuarioId = usuarioId;
+        this.nome = nome;
+        this.senha = senha;
+        this.razaoSocial = razaoSocial;
+        this.ativo = ativo;
+        this.criadoEm = criadoEm;
+        this.atualizadoEm = atualizadoEm;
+    }
+
     public Long getUsuarioId() {
         return usuarioId;
     }

@@ -6,10 +6,14 @@ import com.gml.banco.dto.UsuarioUpdateDto;
 import com.gml.banco.entities.Usuario;
 import com.gml.banco.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 import static com.gml.banco.mapper.UsuarioMapper.*;
 
+@Valid
 @RestController
 @RequestMapping(path = "/api/usuarios")
 public class UsuarioController {
@@ -24,7 +28,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public UsuarioResponseDto criarUsuario(@RequestBody UsuarioCreateDto usuarioCreateDto) {
+    public UsuarioResponseDto criarUsuario(@Valid @RequestBody UsuarioCreateDto usuarioCreateDto) {
         Usuario usuario = service.saveUsuario(usuarioCreateDtoToUsuario(usuarioCreateDto));
         return usuarioToUsuarioResponseDto(usuario);
     }

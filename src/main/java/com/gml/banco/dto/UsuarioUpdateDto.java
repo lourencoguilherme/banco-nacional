@@ -6,9 +6,14 @@ public class UsuarioUpdateDto implements Serializable {
     private static final long serialVersionUID =1L;
 
     private String nome;
-    private String Senha;
+    private String senha;
 
     public UsuarioUpdateDto() {
+    }
+
+    public UsuarioUpdateDto(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
     }
 
     public String getNome() {
@@ -20,10 +25,10 @@ public class UsuarioUpdateDto implements Serializable {
     }
 
     public String getSenha() {
-        return Senha;
+        return senha;
     }
 
     public void setSenha(String senha) {
-        Senha = senha;
+        this.senha = senha;
     }
 }
